@@ -13,7 +13,7 @@ data class CoinDto(
     val type: String,
 )
 
-fun CoinDto.toCoinDto(): Coin {
+fun CoinDto.toCoin(): Coin {
     return Coin(
         id = id,
         isActive = isActive,
