@@ -8,10 +8,8 @@ data class CoinDto(
     val name: String,
     val symbol: String,
     val rank: Int,
-    @SerializedName("is_new")
-    val isNew: Boolean,
-    @SerializedName("is_active")
-    val isActive: Boolean,
+    @SerializedName("is_new") val isNew: Boolean,
+    @SerializedName("is_active") val isActive: Boolean,
     val type: String,
 )
 
@@ -19,7 +17,6 @@ fun CoinDto.toCoinDto(): Coin {
     return Coin(
         id = id,
         isActive = isActive,
-
         name = name,
         symbol = symbol,
         rank = rank,
