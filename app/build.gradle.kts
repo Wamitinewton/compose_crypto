@@ -1,9 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.dagger.hilt.android)
-
     id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 
 }
 
@@ -91,9 +90,9 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
 
     // Dagger  -Hilt
-    implementation("com.google.dagger:hilt-android:2.44")
-    kapt("com.google.dagger:hilt-android-compiler:2.44")
-    implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
+    implementation ("com.google.dagger:hilt-android:2.51")
+    kapt ("com.google.dagger:hilt-compiler:2.51")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.4")
     kapt("androidx.hilt:hilt-compiler:1.2.0")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 

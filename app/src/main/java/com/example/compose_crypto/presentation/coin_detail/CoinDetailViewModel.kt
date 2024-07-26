@@ -5,12 +5,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.compose_crypto.common.Constants
 import com.example.compose_crypto.common.Resource
 import com.example.compose_crypto.domain.use_case.get_coin.GetCoinUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
-
+@HiltViewModel
 class CoinDetailViewModel @Inject constructor(
     private val getCoinUseCase: GetCoinUseCase,
     savedStateHandle: SavedStateHandle
@@ -20,7 +22,9 @@ class CoinDetailViewModel @Inject constructor(
     val state : State<CoinDetailState> = _state
 
     init {
-
+        savedStateHandle.get<String>(Constants.COIN_ID)?.let { coinId ->
+            getCoin(coinId)
+        }
     }
 
     private fun getCoin(coinId:String){
